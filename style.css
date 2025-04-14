@@ -207,6 +207,10 @@ main {
     color: whitesmoke;
 }
 
+.task-input2:focus{
+    outline: none;
+}
+
 .save-button {
     background-color: rgb(102, 114, 228);
     color:white;
