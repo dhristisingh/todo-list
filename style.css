@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family:  Helvetica, sans-serif;
+}
+
+html {
+    background-color: #1a1919;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.main-container {
+    width: 80%;
+    margin: auto;
+    min-height: 80vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    border : 3px solid rgba(255,255,255,0.19);
+    border-radius: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    box-shadow: inset 0rem 0rem 20px  gray , 0rem 0rem 20px red;
+    
+}
+
+@keyframes colorChange {
+    0% {
+        box-shadow:inset 0rem 0rem 20px  red, 0rem 0rem 20px red;
+    } 25% {
+        box-shadow: inset 0rem 0rem 30px  green,0rem 0rem 30px green;
+    } 50% {
+        box-shadow: inset 0rem 0rem 40px  blue,0rem 0rem 40px blue;
+    } 75% {
+        box-shadow: inset 0rem 0rem 30px  pink,0rem 0rem 30px pink;
+    } 100% {
+        box-shadow: inset 0rem 0rem 20px  red,0rem 0rem 20px red;
+    }
+}
+
+.shadow-animate {
+    animation: colorChange 5s ease-in-out infinite;
+}
+
+.todo-list-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: start;
+    height: 100%;
+    color: white;
+    text-shadow: 2px 2px 5px #fff;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.todo-list {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+
+}
+
+.list {
+    background-color: #595656;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.13s ease-in;
+}
+
+
+
+.list:hover {
+    scale: 1.02;
+    background-color: #453d3d;
+}
+
+
+
+
+.list-task {
+    font-size: 2rem;
+    color : white;
+    width: 100%;
+    display: flex;
+}
+
+
+
+.update {
+    background-color: rgb(102, 114, 228);
+    color:white;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    transition: all 0.2s ease-in;
+}
+
+.update:hover {
+    background-color: rgb(38, 57, 224);
+}
+
+.save-button:hover {
+    background-color: rgb(38, 57, 224);
+}
+
+.update:active {
+    background: linear-gradient(to right , gray , rgb(191, 190, 190));
+}
+
+.save-button:active {
+    background: linear-gradient(to right , gray , rgb(191, 190, 190));
+}
+
+.list .delete {
+    background-color: rgb(224, 96, 96);
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    transition: all 0.2s ease-in;
+}
+
+
+.list .delete:hover {
+    background-color: rgb(251, 13, 13);
+
+}
+
+.list .delete:active {
+    background: linear-gradient(to right , gray , rgb(191, 190, 190)  );
+}
+
+.add-tasks {
+    width: 100%;
+    margin: 0 auto;;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.add-tasks .add-tasks-wrapper {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 7rem;
+    background-color: #595656;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+.task-input {
+    width:90%;
+    padding: 1rem;
+    margin-right: 0.5rem;
+    height: 4rem;
+    font-size: 2rem;
+    background-color: #453d3d;
+    border: 1px solid white;;
+    border-radius: 1rem;
+    color: whitesmoke;
+}
+
+.custom-placeholder::placeholder {
+    color: red;
+    font-style: italic;
+}
+
+
+.task-input2 {
+    width: 65%;
+    padding: 1rem;
+    margin-right: 0.5rem;
+    height: 4rem;
+    font-size: 2rem;
+    background-color: #453d3d;
+    border: 1px solid white;;
+    border-radius: 1rem;
+    color: whitesmoke;
+}
+
+.save-button {
+    background-color: rgb(102, 114, 228);
+    color:white;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+}
+
+.add-tasks .task-input:focus {
+    outline: none;
+}
+
+.add-tasks .add-task {
+    font-size: 2rem;
+    width: 4rem;
+    height: 3.5rem;
+    border: 1px soid #1a1919;
+    border-radius: 1rem;
+    background-color: greenyellow;
+
+}
+
+.add-tasks .add-task:hover {
+    background-color: rgb(74, 234, 74);
+}
+
+.add-tasks .add-task:active {
+    background-color: rgb(137, 239, 137);
+}
+
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    } 80% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeSlideOut {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    
+}
+
+.task-animate-add {
+    animation: fadeSlideIn 0.3s ease-in;
+}
+
+.task-animate-delete{
+    animation: fadeSlideOut 0.3s ease-out;
+}
