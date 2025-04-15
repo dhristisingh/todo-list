@@ -11,6 +11,8 @@ function renderTodoList(newTaskIndex = null) {
 
         accumulator += `<div class="list ${toAnimate} ">
                         <p class="list-task" data-key="${index+1}">${index+1}. ${task}</p>
+                        <button class="task-status" data-key="${index+1}">Done</button>
+                        
                         <button class="update" data-key="${index+1}">Update</button>
                         <button class="delete" data-key="${index+1}">
                             Delete
@@ -22,19 +24,27 @@ function renderTodoList(newTaskIndex = null) {
 
     const taskDeleteElements = document.querySelectorAll('.delete');
     const taskUpdateElements = document.querySelectorAll('.update');
+    const taskStatusElements = document.querySelectorAll('.task-status');
 
     taskDeleteElements.forEach((item) => {
         item.addEventListener("click",(e) => {
-            let itemIndex = item.dataset.key -1;
+            let itemIndex = item.getAttribute("data-key") -1;
             deleteTask(itemIndex);
         })
     });
 
     taskUpdateElements.forEach((item) => {
         item.addEventListener("click" , (e) => {
-            let itemIndex = item.dataset.key -1;
+            let itemIndex = item.getAttribute("data-key") -1;
             console.log(itemIndex);
             updateTask(itemIndex);
+        })
+    })
+
+    taskStatusElements.forEach((item) => {
+        item.addEventListener("click" , () => {
+            let itemIndex = item.getAttribute("data-key") -1;
+            taskComplete(itemIndex);
         })
     })
 
@@ -53,24 +63,19 @@ function renderTodoList(newTaskIndex = null) {
 renderTodoList()
 
 
-function deleteTask(index){
-    const taskElement = document.querySelector(`.list:nth-child(${index +1})`);
-    taskElement.classList.add('task-animate-delete');
-    taskElement.addEventListener('animationend',() => {
-        taskList.splice(index,1);
-        renderTodoList();
-    })
 
-}
 
 
 const inputElement = document.querySelector('.task-input');
 const addButtonElement = document.querySelector('.add-task');
-
+                       
 addButtonElement.addEventListener("click" , () => {
     let task = inputElement.value;
     addTasks(task);
 });
+
+
+
 
 
 let timeoutID = null;
@@ -99,6 +104,16 @@ function addTasks(task) {
 
 }
 
+function deleteTask(index){
+    const taskElement = document.querySelector(`.list:nth-child(${index +1})`);
+    taskElement.classList.add('task-animate-delete');
+    taskElement.addEventListener('animationend',() => {
+        taskList.splice(index,1);
+        renderTodoList();
+    })
+
+}
+
 function updateTask(index){
     console.log(index);
     const taskElement = document.querySelector(`.list-task[data-key="${index+1}"]`);
@@ -121,4 +136,11 @@ function updateTask(index){
             renderTodoList();
         }
     })
+}
+
+
+function taskComplete(index) {
+    const taskElement = document.querySelector(`.list-task[data-key="${index+1}"]`);
+
+    taskElement.setAttribute("style","text-decoration :line-through");
 }
